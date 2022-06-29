@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/near-payday-web/static/css/main.6d44d92c.css",
+    "main.js": "/near-payday-web/static/js/main.8b8f95af.js",
+    "static/js/787.bbbb6626.chunk.js": "/near-payday-web/static/js/787.bbbb6626.chunk.js",
+    "static/media/bootstrap-icons.woff?": "/near-payday-web/static/media/bootstrap-icons.7ff3ca6fa798de3f8ac2.woff",
+    "static/media/bootstrap-icons.woff2?": "/near-payday-web/static/media/bootstrap-icons.f2539a501be3a673de05.woff2",
+    "static/media/cover_img.png": "/near-payday-web/static/media/cover_img.60bc5ae5c719840db043.png",
+    "index.html": "/near-payday-web/index.html",
+    "main.6d44d92c.css.map": "/near-payday-web/static/css/main.6d44d92c.css.map",
+    "main.8b8f95af.js.map": "/near-payday-web/static/js/main.8b8f95af.js.map",
+    "787.bbbb6626.chunk.js.map": "/near-payday-web/static/js/787.bbbb6626.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d44d92c.css",
+    "static/js/main.8b8f95af.js"
+  ]
+}
