@@ -1,18 +1,27 @@
 {
   "files": {
-    "main.css": "/near-payday-web/static/css/main.6d44d92c.css",
-    "main.js": "/near-payday-web/static/js/main.8b8f95af.js",
-    "static/js/787.bbbb6626.chunk.js": "/near-payday-web/static/js/787.bbbb6626.chunk.js",
-    "static/media/bootstrap-icons.woff?": "/near-payday-web/static/media/bootstrap-icons.7ff3ca6fa798de3f8ac2.woff",
-    "static/media/bootstrap-icons.woff2?": "/near-payday-web/static/media/bootstrap-icons.f2539a501be3a673de05.woff2",
-    "static/media/cover_img.png": "/near-payday-web/static/media/cover_img.60bc5ae5c719840db043.png",
+    "main.css": "/near-payday-web/static/css/main.d87cbb72.chunk.css",
+    "main.js": "/near-payday-web/static/js/main.9e305cb6.chunk.js",
+    "main.js.map": "/near-payday-web/static/js/main.9e305cb6.chunk.js.map",
+    "runtime-main.js": "/near-payday-web/static/js/runtime-main.43b93236.js",
+    "runtime-main.js.map": "/near-payday-web/static/js/runtime-main.43b93236.js.map",
+    "static/css/2.45a3760e.chunk.css": "/near-payday-web/static/css/2.45a3760e.chunk.css",
+    "static/js/2.581a0d4f.chunk.js": "/near-payday-web/static/js/2.581a0d4f.chunk.js",
+    "static/js/2.581a0d4f.chunk.js.map": "/near-payday-web/static/js/2.581a0d4f.chunk.js.map",
+    "static/js/3.ff341aa9.chunk.js": "/near-payday-web/static/js/3.ff341aa9.chunk.js",
+    "static/js/3.ff341aa9.chunk.js.map": "/near-payday-web/static/js/3.ff341aa9.chunk.js.map",
     "index.html": "/near-payday-web/index.html",
-    "main.6d44d92c.css.map": "/near-payday-web/static/css/main.6d44d92c.css.map",
-    "main.8b8f95af.js.map": "/near-payday-web/static/js/main.8b8f95af.js.map",
-    "787.bbbb6626.chunk.js.map": "/near-payday-web/static/js/787.bbbb6626.chunk.js.map"
+    "static/css/2.45a3760e.chunk.css.map": "/near-payday-web/static/css/2.45a3760e.chunk.css.map",
+    "static/css/main.d87cbb72.chunk.css.map": "/near-payday-web/static/css/main.d87cbb72.chunk.css.map",
+    "static/js/2.581a0d4f.chunk.js.LICENSE.txt": "/near-payday-web/static/js/2.581a0d4f.chunk.js.LICENSE.txt",
+    "static/media/bootstrap-icons.css": "/near-payday-web/static/media/bootstrap-icons.f2539a50.woff2",
+    "static/media/cover_img.60bc5ae5.png": "/near-payday-web/static/media/cover_img.60bc5ae5.png"
   },
   "entrypoints": [
-    "static/css/main.6d44d92c.css",
-    "static/js/main.8b8f95af.js"
+    "static/js/runtime-main.43b93236.js",
+    "static/css/2.45a3760e.chunk.css",
+    "static/js/2.581a0d4f.chunk.js",
+    "static/css/main.d87cbb72.chunk.css",
+    "static/js/main.9e305cb6.chunk.js"
   ]
 }
