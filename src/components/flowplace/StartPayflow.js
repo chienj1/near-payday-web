@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
-import  DateTimePicker from 'react-datetime-picker'
+import  DateTimePicker from "react-datetime-picker";
 
 const StartPayflow = ({ id, save }) => {
     const [beginTime, setBeginTime] = useState("");
     const [endTime, setEndTime] = useState("");
     const [numofpay, setNumOfPay] = useState(0);
     const [receiver, setReceiver] = useState("");
-    const [phtime, setphtime] = useState(""); 
+    const [phtime, setphtime] = useState(new Date()); 
 
     const isFormFilled = () => beginTime && endTime && numofpay && receiver;
     
@@ -28,14 +28,14 @@ const StartPayflow = ({ id, save }) => {
           </Button>
           <Modal show={show} onHide={handleClose} centered>
             <Modal.Header closeButton>
-              <Modal.Title>Start Payflow cannot modify anything after start</Modal.Title>
+              <Modal.Title>Start Payflow (cannot modify anything after start)</Modal.Title>
             </Modal.Header>
             <Form>
               <Modal.Body>
                 <DateTimePicker 
                   value={phtime} 
                   onChange={(e) => {
-                    setphtime(e.target.value);
+                    setphtime(e);
                   }} 
                 />
                 <FloatingLabel

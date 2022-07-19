@@ -14,12 +14,18 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
 
   const account = window.walletConnection.account();
   let isYours = owner === account.accountId || receiver === account.accountId;
+  
+  const btime = new Date(beginTime+'0000');
+  const etime = new Date(endTime+'0000');
 
   const triggerKillPay  = () => { killpay(id) }; 
   
   const enablePayment = async (id, beginTime, endTime, numofpay, receiver) => {
     startPayment(id, beginTime, endTime, numofpay, receiver).then((resp) => { getPayflows(); });
   } 
+
+
+  var [estclaim, estimateClaimable] = useState(0); 
 
   return (
     <>
@@ -53,7 +59,22 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
               { start ? (<div>
                             <div>initBalance: {formatNearAmount(initBalance)} Near</div>
                             <div>claimable: {formatNearAmount(available)} Near</div>
-                            <div>estimate claimable: {} Near</div>
+                            <div>est. claimable: {estclaim} Near 
+                              <Button onClick={ ()=> {
+                                var nowtime = new Date();
+                                var ratio = (nowtime.getTime()-btime.getTime())/(etime.getTime()-btime.getTime());
+                                var confined_ratio = Math.min(1, Math.max(ratio, 0));
+                                estimateClaimable(formatNearAmount(initBalance*confined_ratio-taken));
+                                console.log(nowtime);
+                                console.log(btime);
+                                console.log(etime);
+                                console.log(nowtime.getTime());
+                                console.log(btime.getTime());
+                                console.log(etime.getTime());                                
+                              }}>
+                                estimate
+                              </Button>
+                            </div>
                             <div>claimed: {formatNearAmount(taken)} Near</div>
                         </div>) : (null) }
             </Card.Text>
