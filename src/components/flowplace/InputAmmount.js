@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 
-const InputAmmount = ({ id, save, description }) => {
+const InputAmmount = ({ id, save, description, label }) => {
     const [ammount, setAmmount] = useState("");
     
     const isFormFilled = () => ammount;
@@ -30,6 +30,7 @@ const InputAmmount = ({ id, save, description }) => {
                 <FloatingLabel
                   controlId="inputAmmount"
                   className="mb-3"
+                  label={label}
                 >
                   <Form.Control
                     type="text"

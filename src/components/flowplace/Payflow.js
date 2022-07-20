@@ -14,9 +14,6 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
 
   const account = window.walletConnection.account();
   let isYours = owner === account.accountId || receiver === account.accountId;
-  
-  const btime = new Date(beginTime);
-  const etime = new Date(endTime);
 
   const triggerKillPay  = () => { killpay(id) }; 
   
@@ -52,26 +49,25 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
             <Card.Text className="flex-grow-1 ">{receiver}</Card.Text>
             <Card.Text className="text-secondary">
               <div>balance: {formatNearAmount(balance) || "null"} Near</div>
-              <div>begin at: {beginTime || "null"}</div>
-              <div>end at: {endTime || "null"}</div>
+              <div><hr /></div>
+              <div>begin at: {beginTime? new Date(beginTime).toString() : "Not set yet"}</div>
+              <div>⇩</div>
+              <div>end at: {endTime? new Date(endTime).toString() : "Not set yet"}</div>
+              <div><hr /></div>
               <div>place holder: {numofpay || "null"}</div>
-              <div>started? {start? "yes" : "no"} </div>
               { start ? (<div>
                             <div>initBalance: {formatNearAmount(initBalance)} Near</div>
                             <div>claimable: {formatNearAmount(available)} Near</div>
                             <div>est. claimable: {estclaim} Near 
                               <Button onClick={ ()=> {
-                                var nowtime = new Date();
-                                var ratio = (nowtime.getTime()-btime.getTime())/(etime.getTime()-btime.getTime());
+                                var btime = new Date(beginTime).getTime();
+  				 var etime = new Date(endTime).getTime();
+                                var nowtime = new Date().getTime();
+                                
+                                var ratio = ((nowtime-btime)/(etime-btime));
                                 var confined_ratio = Math.min(1, Math.max(ratio, 0));
-                                estimateClaimable(formatNearAmount(initBalance*confined_ratio-taken));
-                                console.log(nowtime);
-                                console.log(btime);
-                                console.log(etime);
-                                console.log(nowtime.getTime()-btime.getTime());
-                                console.log(etime.getTime()-btime.getTime());
-                                console.log(ratio);  
-                                console.log(confined_ratio);                              
+                                var est = initBalance*confined_ratio-taken;
+                 	         estimateClaimable(est/1.0e+24);                                                             
                               }}>
                                 estimate
                               </Button>
@@ -80,11 +76,11 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
                         </div>) : (null) }
             </Card.Text>
             { !start ? (<div>
-              <InputAmmount id={id} save={withdraw} description={"Withdraw"} enable={true}/>
-              <InputAmmount id={id} save={deposit} description={"Deposit"} enable={true}/>
+              <InputAmmount id={id} save={withdraw} description={"Withdraw"} enable={true} label={"max: "+(balance/1.0e+24).toString()+" N"}/>
+              <InputAmmount id={id} save={deposit} description={"Deposit"} enable={true} label={"ammount"}/>
               <StartPayflow id={id} save={enablePayment}/>
             </div>) : (<div>
-              <InputAmmount id={id} save={getpay} description={"Claim"}/>
+              <InputAmmount id={id} save={getpay} description={"Claim"} label={"max: "+(estclaim).toString()+" N"}/>
             </div>)}
           </Card.Body>
         </Card>
@@ -100,8 +96,6 @@ Payflow.propTypes = {
   payflow: PropTypes.instanceOf(Object).isRequired,
   deposit: PropTypes.func.isRequired,
   withdraw: PropTypes.func.isRequired, 
-  makestart: PropTypes.func.isRequired, 
-  update: PropTypes.func.isRequired, 
   getpay: PropTypes.func.isRequired,
   killpay: PropTypes.func.isRequired
 };
