@@ -15,8 +15,8 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
   const account = window.walletConnection.account();
   let isYours = owner === account.accountId || receiver === account.accountId;
   
-  const btime = new Date(beginTime+'0000');
-  const etime = new Date(endTime+'0000');
+  const btime = new Date(beginTime);
+  const etime = new Date(endTime);
 
   const triggerKillPay  = () => { killpay(id) }; 
   
@@ -68,9 +68,10 @@ const Payflow = ({ payflow, deposit, withdraw, update, getpay, killpay }) => {
                                 console.log(nowtime);
                                 console.log(btime);
                                 console.log(etime);
-                                console.log(nowtime.getTime());
-                                console.log(btime.getTime());
-                                console.log(etime.getTime());                                
+                                console.log(nowtime.getTime()-btime.getTime());
+                                console.log(etime.getTime()-btime.getTime());
+                                console.log(ratio);  
+                                console.log(confined_ratio);                              
                               }}>
                                 estimate
                               </Button>

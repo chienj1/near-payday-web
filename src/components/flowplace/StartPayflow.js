@@ -4,12 +4,11 @@ import { Button, Modal, Form, FloatingLabel } from "react-bootstrap";
 import  DateTimePicker from "react-datetime-picker";
 
 const StartPayflow = ({ id, save }) => {
-    const [beginTime, setBeginTime] = useState("");
-    const [endTime, setEndTime] = useState("");
+    const [beginTime, setBeginTime] = useState(new Date());
+    const [endTime, setEndTime] = useState(new Date());
     const [numofpay, setNumOfPay] = useState(0);
     const [receiver, setReceiver] = useState("");
-    const [phtime, setphtime] = useState(new Date()); 
-
+    
     const isFormFilled = () => beginTime && endTime && numofpay && receiver;
     
     const [show, setShow] = useState(false);
@@ -32,38 +31,26 @@ const StartPayflow = ({ id, save }) => {
             </Modal.Header>
             <Form>
               <Modal.Body>
+              	<div> Begin Time
                 <DateTimePicker 
-                  value={phtime} 
+                  value={beginTime}
+                  clearIcon={null} 
+                  minDate={new Date()}
                   onChange={(e) => {
-                    setphtime(e);
+                    setBeginTime(e);
                   }} 
                 />
-                <FloatingLabel
-                  controlId="inputBeginTime"
-                  label="BeginTime"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="text"
-                    placeholder="Time"
-                    onChange={(e) => {
-                        setBeginTime(e.target.value);
-                    }}
-                  />
-                </FloatingLabel>
-                <FloatingLabel
-                  controlId="inputEndTime"
-                  label="EndTime"
-                  className="mb-3"
-                >
-                  <Form.Control
-                    type="text"
-                    placeholder="Time"
-                    onChange={(e) => {
-                        setEndTime(e.target.value);
-                    }}
-                  />
-                </FloatingLabel>
+                </div>
+                <div> End Time
+                <DateTimePicker 
+                  value={endTime}
+                  clearIcon={null} 
+                  minDate={new Date()} 
+                  onChange={(e) => {
+                    setEndTime(e);
+                  }} 
+                />
+                </div>
                 <FloatingLabel
                   controlId="inputNOP"
                   label="Place holder"
